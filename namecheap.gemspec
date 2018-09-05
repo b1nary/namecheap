@@ -4,7 +4,7 @@ require "namecheaper/version"
 
 Gem::Specification.new do |s|
   s.name        = "namecheaper"
-  s.version     = Namecheap::VERSION
+  s.version     = Namecheaper::VERSION
   s.authors     = ["b1nary"]
   s.email       = ["r@cia.li"]
   s.homepage    = "https://github.com/b1nary/namecheap"
