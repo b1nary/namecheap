@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "namecheap/version"
+require "namecheaper/version"
 
 Gem::Specification.new do |s|
-  s.name        = "namecheap"
+  s.name        = "namecheaper"
   s.version     = Namecheap::VERSION
-  s.authors     = ["parasquid"]
-  s.email       = ["tristan.gomez@gmail.com"]
-  s.homepage    = "https://github.com/parasquid/namecheap"
+  s.authors     = ["b1nary"]
+  s.email       = ["r@cia.li"]
+  s.homepage    = "https://github.com/b1nary/namecheap"
   s.description = %q{Ruby wrapper for the Namecheap API}
   s.summary     = s.description
-  s.homepage    = 'https://github.com/parasquid/namecheap'
+  s.homepage    = 'https://github.com/b1nary/namecheap'
   s.licenses    = ['GNU']
 
   s.rubyforge_project = "namecheap"
