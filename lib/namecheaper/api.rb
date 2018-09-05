@@ -1,11 +1,19 @@
 require 'active_support/core_ext/string/inflections'
 
-module Namecheap
+class Namecheaper
   class Api
     SANDBOX = 'https://api.sandbox.namecheap.com/xml.response'
     PRODUCTION = 'https://api.namecheap.com/xml.response'
     ENVIRONMENT = defined?(Rails) && Rails.respond_to?(:env) ? Rails.env : (ENV["RACK_ENV"] || 'development')
-    ENDPOINT = (ENVIRONMENT == 'production' ? PRODUCTION : SANDBOX)
+
+    def initialize parent
+      @parent = parent
+    end
+
+    def endpoint
+      return PRODUCTION if @parent.config[:force_production]
+      (ENVIRONMENT == 'production' ? PRODUCTION : SANDBOX)
+    end
 
     def get(command, options = {})
       request 'get', command, options
@@ -33,30 +41,24 @@ module Namecheap
       case method
       when 'get'
         #raise options.inspect
-        HTTParty.get(ENDPOINT, { :query => options})
+        HTTParty.get(endpoint, { :query => options})
       when 'post'
-        HTTParty.post(ENDPOINT, { :query => options})
+        HTTParty.post(endpoint, { :query => options})
       when 'put'
-        HTTParty.put(ENDPOINT, { :query => options})
+        HTTParty.put(endpoint, { :query => options})
       when 'delete'
-        HTTParty.delete(ENDPOINT, { :query => options})
+        HTTParty.delete(endpoint, { :query => options})
       end
     end
 
     def init_args
-      %w(username key client_ip).each do |key|
-        if Namecheap.config.key.nil?
-          raise Namecheap::Config::RequiredOptionMissing,
-            "Configuration parameter missing: #{key}, " +
-            "please add it to the Namecheap.configure block"
-        end
-      end
       options = {
-        api_user:  Namecheap.config.username,
-        user_name: Namecheap.config.username,
-        api_key:   Namecheap.config.key,
-        client_ip: Namecheap.config.client_ip
+        api_user:  @parent.config[:username],
+        user_name: @parent.config[:username],
+        api_key:   @parent.config[:key],
+        client_ip: @parent.config[:client_ip] || '127.0.0.1'
       }
+      p options
     end
   end
 end

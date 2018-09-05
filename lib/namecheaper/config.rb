@@ -1,4 +1,4 @@
-module Namecheap
+class Namecheaper
   module Config
     class RequiredOptionMissing < RuntimeError ; end
     extend self

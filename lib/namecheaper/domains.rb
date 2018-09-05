@@ -1,4 +1,4 @@
-module Namecheap
+class Namecheaper
   class Domains < Api
     # Returns a list of domains for the particular user.
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:domains:getlist
@@ -39,7 +39,7 @@ module Namecheap
       if domains.respond_to?(:join)
         domains = domains.join(',')
       end
-      
+
       options = {:DomainList => domains}.merge(options)
       get 'domains.check', options
     end

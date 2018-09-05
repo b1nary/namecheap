@@ -1,4 +1,4 @@
-module Namecheap
+class Namecheaper
   class Ns < Api
     # Creates a new nameserver.
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:domains.ns:create

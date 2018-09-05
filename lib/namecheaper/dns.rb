@@ -1,4 +1,4 @@
-module Namecheap
+class Namecheaper
   class Dns < Api
     # Sets domain to use Namecheap's default DNS servers.
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:domains.dns:setdefault
@@ -13,7 +13,7 @@ module Namecheap
       if nameservers.respond_to?(:join)
         nameservers = nameservers.join(',')
       end
-      
+
       options = {:SLD => sld, :TLD => tld, :Nameservers => nameservers}.merge(options)
       get 'domains.dns.setCustom', options
     end

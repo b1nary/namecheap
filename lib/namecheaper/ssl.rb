@@ -1,4 +1,4 @@
-module Namecheap
+class Namecheaper
   class Ssl < Api
     # Activates a newly purchased SSL certificate.
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:ssl:activate

@@ -1,4 +1,4 @@
-module Namecheap
+class Namecheaper
   class Users < Api
     # Creates a new user account at NameCheap.
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:users:create

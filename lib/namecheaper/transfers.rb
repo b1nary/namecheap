@@ -1,4 +1,4 @@
-module Namecheap
+class Namecheaper
   class Transfers < Api
     # Transfers a domain to Namecheap.
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:domains.transfer:create

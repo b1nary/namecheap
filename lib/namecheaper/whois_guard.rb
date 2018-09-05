@@ -1,5 +1,5 @@
-module Namecheap
-  class Whois_Guard < Api
+class Namecheaper
+  class WhoisGuard < Api
     # Allots WhoisGuard privacy protection.
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:whoisguard:allot
     def allot(id, domain, options = {})

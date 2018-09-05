@@ -1,10 +1,10 @@
 require 'helper'
 
-describe Namecheap::Whois_Guard do
+describe Namecheap::WhoisGuard do
   before { set_dummy_config }
 
   it 'should initialize' do
-    Namecheap::Whois_Guard.new
+    Namecheap::WhoisGuard.new
   end
 
   it 'should be already initialized from the Namecheap namespace' do
